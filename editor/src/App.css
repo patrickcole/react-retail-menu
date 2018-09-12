@@ -9,13 +9,13 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  margin: 0;
 }
 
 .App-intro {
@@ -25,4 +25,56 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.retail-menu {
+
+  width: 60vw;
+  margin: 25px auto;
+  border: 1px solid #222;
+}
+
+.retail-menu-category {
+  
+  margin: 0;
+  padding: 10px;
+  background-color: #222;
+  color: #fff;
+}
+
+.retail-menu-items {
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 100%;
+}
+
+.retail-menu-item {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+}
+
+  .retail-menu-item:last-child {
+
+    border-bottom-width: 0;
+  }
+
+  .retail-menu-item .retail-menu-item {
+
+    padding-right: 0;
+  }
+
+.retail-menu-title {
+
+  flex: 1 1 60%;
+  text-align: left;
+}
+
+.retail-menu-price {
+
+  flex: 1 1 40%;
+  text-align: right;
 }

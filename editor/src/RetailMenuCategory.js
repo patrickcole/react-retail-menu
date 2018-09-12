@@ -11,11 +11,19 @@ export default class RetailMenuCategory extends Component {
 
   render(){
 
+    let categoryDescription;
+
+    if ( this.props.description ) {
+
+      categoryDescription = <p>{ this.props.description }</p>;
+    }
+
     if ( this.props.is_category ){
 
       return (
-        <div>
+        <div className="retail-menu">
           <h3 className="retail-menu-category">{ this.props.title }</h3>
+          { categoryDescription }
           <ul className="retail-menu-items">
             { this.buildItems() }
           </ul>
