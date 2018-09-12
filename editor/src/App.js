@@ -22,7 +22,13 @@ class App extends Component {
             title: "Ice Cream",
             items: [
               { title: "Sherbert", price: "1.99" },
-              { title: "Peanut Butter", price: "1.39" }
+              { 
+                title: "Peanut Butter", 
+                price: "1.39", 
+                tags: [
+                  { tag: "pnut", description: "Peanut Allergy" }
+                ]
+              }
             ]
           }
         ]
@@ -37,11 +43,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Retail Menu</h1>
         </header>
-        <RetailMenuCategory 
-          title={ this.state.menu.title } 
-          is_category={ this.state.menu.is_category } 
-          description= { this.state.menu.description }
-          items={ this.state.menu.items } />
+        <RetailMenuCategory menu={ this.state.menu } />
       </div>
     );
   }

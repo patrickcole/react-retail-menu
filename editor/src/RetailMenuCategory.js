@@ -4,27 +4,26 @@ import RetailMenuItem from './RetailMenuItem';
 export default class RetailMenuCategory extends Component {
 
   buildItems() {
-    return this.props.items.map( (item, index) => (
-      <RetailMenuItem key={index} item={item} />
-    ));
+    
+    return this.props.menu.items.map( (item, index) => <RetailMenuItem key={index} item={item} /> );
   }
 
   render(){
 
     let categoryDescription;
 
-    if ( this.props.description ) {
+    if ( this.props.menu.description ) {
 
-      categoryDescription = <p>{ this.props.description }</p>;
+      categoryDescription = <p>{ this.props.menu.description }</p>;
     }
 
-    if ( this.props.is_category ){
+    if ( this.props.menu.is_category ){
 
       return (
         <div className="retail-menu">
-          <h3 className="retail-menu-category">{ this.props.title }</h3>
+          <h3 className="retail-menu__category">{ this.props.menu.title }</h3>
           { categoryDescription }
-          <ul className="retail-menu-items">
+          <ul className="retail-menu__items">
             { this.buildItems() }
           </ul>
         </div>
@@ -32,7 +31,7 @@ export default class RetailMenuCategory extends Component {
     } else {
 
       return (
-        <ul className="retail-menu-items">
+        <ul className="retail-menu__items">
           { this.buildItems() }
         </ul>
       )

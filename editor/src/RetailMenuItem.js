@@ -1,44 +1,49 @@
 import React, {Component} from 'react';
-
 import RetailMenuCategory from './RetailMenuCategory';
 
 export default class RetailMenuItem extends Component {
 
+  buildTags(tags) {
+
+    if ( tags ){
+
+      return tags.map( (item, index) => <span className="retail-menu__tag" key={index}>{item.tag}</span>)
+    } else {
+
+      return;
+    }
+  }
+
   buildItem() {
 
     let itemSubItems;
-    let itemCategoryTitle;
     let itemPrice;
     let itemDescription;
 
-    if ( this.props.item.is_category ){
-
-      itemCategoryTitle = this.props.item.title;
-    }
-
-    if ( this.props.item.items ){
-
-      itemSubItems = <RetailMenuCategory title={ itemCategoryTitle } items={ this.props.item.items } />
-    }
-
-    if ( this.props.item.description ){
+    if ( this.props.item.description ) {
 
       itemDescription = <p>{ this.props.item.description }</p>
     }
 
-    if ( this.props.item.price ){
+    if ( this.props.item.items ) {
 
-      itemPrice = <span className="retail-menu-price">{ this.props.item.price }</span>;
+      itemSubItems = <RetailMenuCategory menu={ this.props.item } />
+    }
+
+    if ( this.props.item.price ) {
+
+      itemPrice = <span className="retail-menu__price">{ this.props.item.price }</span>;
     }
 
     return (
-      <li className="retail-menu-item">
-        <span className="retail-menu-title">{ this.props.item.title }</span>
+      <li className="retail-menu__item">
+        <span className="retail-menu__title">{ this.props.item.title }</span>
         { itemPrice }
         { itemDescription }
+        { this.buildTags( this.props.item.tags ) }
         { itemSubItems }
       </li>
-    ) 
+    );
   }
 
   render(){
