@@ -7,7 +7,18 @@ export default class RetailMenuItem extends Component {
 
     if ( tags ){
 
-      return tags.map( (item, index) => <span className="retail-menu__tag" key={index}>{item.tag}</span>)
+      return tags.map( (item, index) => <a href={`#tag${item.id}`}><abbr className="retail-menu__tag" key={index} title={item.description}>{item.id}</abbr></a>)
+    } else {
+
+      return;
+    }
+  }
+
+  buildMenu(item) {
+
+    if ( item.items ){
+
+      return <RetailMenuCategory menu={ item } />
     } else {
 
       return;
@@ -16,34 +27,34 @@ export default class RetailMenuItem extends Component {
 
   buildItem() {
 
-    let itemSubItems;
     let itemPrice;
     let itemDescription;
 
-    if ( this.props.item.description ) {
+    if ( this.props.item.title ){
 
-      itemDescription = <p>{ this.props.item.description }</p>
+      if ( this.props.item.description ) {
+
+        itemDescription = <p className="retail-menu__description">{ this.props.item.description }</p>
+      }
+
+      if ( this.props.item.price ) {
+
+        itemPrice = <span className="retail-menu__price">{ this.props.item.price }</span>;
+      }
+
+      return (
+        <li className="retail-menu__item">
+          <span className="retail-menu__title">{ this.props.item.title }</span>
+          { itemPrice }
+          { itemDescription }
+          { this.buildTags( this.props.item.tags ) }
+          { this.buildMenu( this.props.item ) }
+        </li>
+      );
+    } else {
+
+      return;
     }
-
-    if ( this.props.item.items ) {
-
-      itemSubItems = <RetailMenuCategory menu={ this.props.item } />
-    }
-
-    if ( this.props.item.price ) {
-
-      itemPrice = <span className="retail-menu__price">{ this.props.item.price }</span>;
-    }
-
-    return (
-      <li className="retail-menu__item">
-        <span className="retail-menu__title">{ this.props.item.title }</span>
-        { itemPrice }
-        { itemDescription }
-        { this.buildTags( this.props.item.tags ) }
-        { itemSubItems }
-      </li>
-    );
   }
 
   render(){

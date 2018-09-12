@@ -4,7 +4,7 @@ import RetailMenuItem from './RetailMenuItem';
 export default class RetailMenuCategory extends Component {
 
   buildItems() {
-    
+
     return this.props.menu.items.map( (item, index) => <RetailMenuItem key={index} item={item} /> );
   }
 
@@ -14,7 +14,7 @@ export default class RetailMenuCategory extends Component {
 
     if ( this.props.menu.description ) {
 
-      categoryDescription = <p>{ this.props.menu.description }</p>;
+      categoryDescription = <p className="retail-menu__description retail-menu__description--category">{ this.props.menu.description }</p>;
     }
 
     if ( this.props.menu.is_category ){
