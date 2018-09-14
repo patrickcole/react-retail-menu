@@ -50,7 +50,7 @@ export default class MenuItemInput extends Component {
 
   render(){
     return (
-      <li>
+      <span>
         <label 
           className={ this.state.isEditingEnabled ? 'menu-item-input--hidden' : '' }
           htmlFor={`nput${this.props.title}`}
@@ -71,7 +71,7 @@ export default class MenuItemInput extends Component {
           onClick={ this.handleButtonClick }>
            { this.state.isEditingEnabled ? `Save` : `Edit` }
           </button>
-      </li>
+      </span>
     )
   }
 }
