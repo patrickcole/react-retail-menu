@@ -43,10 +43,10 @@ export default class Input extends Component {
   render() {
 
     return (
-      <p>
+      <span className="retail-product__input">
         { this.onInputRender() }
         <button onClick={ this.onInputClick }>Update</button>
-      </p>
+      </span>
     )
   }
 }

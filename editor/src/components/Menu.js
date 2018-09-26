@@ -8,21 +8,9 @@ export default class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: props.title,
       debug_iterator: 930,
-      products: [
-        {
-          id: "product929",
-          title: "Chocolate Cake",
-          description: "Mmmm delicious!",
-          price: "2.49"
-        },
-        {
-          id: "product930",
-          title: "Vanilla Cake",
-          description: "Mmmm delicious!",
-          price: "2.49"
-        }
-      ]
+      products: props.products
     }
   }
 
@@ -43,8 +31,12 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
+      <li className="retail-menu__item">
+        <h3 className="retail-menu__title">{ this.state.title }</h3>
+        <span className="retail-menu__controls">
+          <button onClick={ this.addProduct }>Add Product</button>
+        </span>
+        <ul className="retail-menu__products">
           { this.state.products.map( (product, index) => {
 
             return (
@@ -59,9 +51,7 @@ export default class Menu extends Component {
             )
           })}
         </ul>
-        <hr />
-        <button onClick={ this.addProduct }>Add Product</button>
-      </div>
+      </li>
     )
   }
 }

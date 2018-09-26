@@ -27,7 +27,7 @@ export default class Product extends Component {
 
   render() {
     return (
-      <li>
+      <li className="retail-product">
         <Input type="title" onInputUpdate={ this.updateProduct } value={ this.state.title } />
         <Input type="description" onInputUpdate={ this.updateProduct } value={ this.state.description } />
         <Input type="price" onInputUpdate={ this.updateProduct } value={ this.state.price } />
