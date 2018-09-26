@@ -11,7 +11,7 @@ export const desserts = {
     {
       id: "product930",
       title: "Vanilla Cake",
-      description: "Mmmm delicious!",
+      description: "Cool, creamy and delightful!",
       price: "2.49"
     }
   ]

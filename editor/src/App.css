@@ -6,6 +6,13 @@
   padding: 0;
 }
 
+.retail-menu__debug {
+
+  display: block;
+  width: 100%;
+  min-height: 200px;
+}
+
 .retail-menu__item {
 
   border: 1px solid black;

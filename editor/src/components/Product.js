@@ -17,7 +17,10 @@ export default class Product extends Component {
 
   updateProduct = (prop, value) => {
 
-    this.setState( { [prop] : value })
+    this.setState( { [prop] : value }, () => {
+
+      this.props.onProductUpdate(this.state.id, this.state);
+    });
   }
 
   deleteProduct = (e) => {

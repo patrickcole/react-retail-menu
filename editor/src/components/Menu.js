@@ -29,6 +29,20 @@ export default class Menu extends Component {
     this.setState( { products: this.state.products.filter( product => product.id !== id ) } );
   }
 
+  updateProduct = (id, state) => {
+
+    let newProducts = this.state.products.map( product => {
+
+      if ( product.id === id ){
+
+        return Object.assign({}, product, state);
+      }
+      return product;
+    });
+
+    this.setState({ products: newProducts });
+  }
+
   render() {
     return (
       <li className="retail-menu__item">
@@ -47,10 +61,15 @@ export default class Menu extends Component {
                 description={product.description} 
                 price={product.price}
                 onProductDelete={this.deleteProduct}
+                onProductUpdate={this.updateProduct}
               />
             )
           })}
         </ul>
+
+        <hr />
+        <h3>Debug Area</h3>
+        <textarea readOnly className="retail-menu__debug" value={ JSON.stringify( this.state.products, null, 2) }></textarea>
       </li>
     )
   }
