@@ -11,12 +11,12 @@ export default class Input extends Component {
 
   onInputChange = e => {
 
-    this.setState({ value: e.currentTarget.value });
-  }
+    this.setState(
+      { value: e.currentTarget.value },
+      () => {
 
-  onInputClick = e => {
-
-    this.props.onInputUpdate(this.props.type, this.state.value);
+        this.props.onInputUpdate(this.props.type, this.state.value);
+      });
   }
 
   onInputRender = () => {
@@ -25,18 +25,18 @@ export default class Input extends Component {
 
       case "description":
         
-        return <textarea onChange={ this.onInputChange } value={ this.state.value }></textarea>;
+        return <textarea className="retail-input retail-input--description" onChange={ this.onInputChange } value={ this.state.value }></textarea>;
       case "price":
 
         return (
-          <span>
+          <span className="retail-input retail-input--price">
             $
             <input type="number" step="0.01" onChange={ this.onInputChange} value={ this.state.value} />
           </span>
         );
       default:
 
-        return <input type="text" onChange={ this.onInputChange } value={ this.state.value } />;
+        return <input className="retail-input retail-input--title" type="text" onChange={ this.onInputChange } value={ this.state.value } />;
     }
   }
 
@@ -45,7 +45,6 @@ export default class Input extends Component {
     return (
       <span className="retail-product__input">
         { this.onInputRender() }
-        <button onClick={ this.onInputClick }>Update</button>
       </span>
     )
   }

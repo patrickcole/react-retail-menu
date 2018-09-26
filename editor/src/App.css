@@ -2,7 +2,7 @@
 .retail-menu {
 
   list-style-type: none;
-  margin: 0;
+  margin: 10px;
   padding: 0;
 }
 
@@ -15,8 +15,10 @@
 
 .retail-menu__item {
 
-  border: 1px solid black;
+  border: 1px solid #999;
+  border-left: 10px solid dodgerblue;
   padding: 15px;
+  margin-bottom: 10px;
 }
 
 .retail-menu__title {
@@ -25,22 +27,62 @@
   padding: 0;
 }
 
+.retail-menu__contents--closed {
+
+  display: none;
+}
+
 .retail-menu__products {
 
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .retail-product {
 
+  flex: 0 0 auto;
   border: 1px solid #999;
+  border-top: 5px solid dodgerblue;
   padding: 10px;
-  margin: 10px 0;
-  display: flex;
+  margin: 10px 10px 10px 0;
+}
+
+.retail-product:last-child {
+
+  margin-right: 0;
 }
 
 .retail-product__input {
 
+  display: flex;
+}
+
+.retail-input {
+
   flex: 1 1 auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.retail-input--title {
+
+  padding: 7px;
+  font-size: 16px;
+}
+
+.retail-input--description {
+
+  min-height: 84px;
+  font-size: 14px;
+  font-style: italic;
+  padding: 7px;
+  border: 1px solid #ccc;
+}
+
+.retail-input--price {
+
+  text-align: right;
 }

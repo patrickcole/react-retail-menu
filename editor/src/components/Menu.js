@@ -10,6 +10,7 @@ export default class Menu extends Component {
     this.state = {
       title: props.title,
       debug_iterator: 930,
+      expanded: false,
       products: props.products
     }
   }
@@ -17,6 +18,7 @@ export default class Menu extends Component {
   addProduct = (e) => {
 
     this.setState({ 
+      expanded: true,
       debug_iterator: this.state.debug_iterator + 1 },
       () => {
         let product = { id: `product${this.state.debug_iterator}`, title: 'New Product', description: '', price: '0.00' };
@@ -43,13 +45,20 @@ export default class Menu extends Component {
     this.setState({ products: newProducts });
   }
 
+  toggleExpand = (e) => {
+
+    this.setState( { expanded: !this.state.expanded } );
+  }
+
   render() {
     return (
       <li className="retail-menu__item">
         <h3 className="retail-menu__title">{ this.state.title }</h3>
         <span className="retail-menu__controls">
           <button onClick={ this.addProduct }>Add Product</button>
+          <button onClick={ this.toggleExpand }>{ this.state.expanded ? 'Hide' : 'Show' }</button>
         </span>
+        <div className={ this.state.expanded ? 'retail-menu__contents' : 'retail-menu__contents retail-menu__contents--closed' }>
         <ul className="retail-menu__products">
           { this.state.products.map( (product, index) => {
 
@@ -67,9 +76,13 @@ export default class Menu extends Component {
           })}
         </ul>
 
-        <hr />
-        <h3>Debug Area</h3>
-        <textarea readOnly className="retail-menu__debug" value={ JSON.stringify( this.state.products, null, 2) }></textarea>
+          {
+            /*
+            <h3>Debug Area</h3>
+          <textarea readOnly className="retail-menu__debug" value={ JSON.stringify( this.state.products, null, 2) }></textarea>
+            */
+          }
+        </div>
       </li>
     )
   }

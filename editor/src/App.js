@@ -3,14 +3,19 @@ import './App.css';
 
 import Menu from './components/Menu';
 
-import { desserts } from './static/desserts';
+import { storeProducts } from './static/products';
 
 class App extends Component {
 
   render() {
     return (
       <ul className="retail-menu">
-        <Menu title={desserts.title} products={desserts.products} />
+        {
+          storeProducts.menus.map( menu => {
+
+            return <Menu title={menu.title} products={menu.products} />
+          })
+        }
       </ul>
     );
   }
