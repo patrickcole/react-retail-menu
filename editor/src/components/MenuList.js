@@ -7,7 +7,11 @@ export default class MenuList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      items: []
+      items: [ 
+        { text: "Desserts", key: `a${Date.now()}`, items: [
+          { text: "Vanilla", key: `b${Date.now()}` }
+        ] } 
+      ]
     };
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
@@ -35,7 +39,7 @@ export default class MenuList extends Component {
     e.preventDefault();
   }
 
-  deleteItem(key) {
+  deleteItem(parent, key) {
     let filteredItems = this.state.items.filter( function(item) {
       return (item.key !== key);
     });

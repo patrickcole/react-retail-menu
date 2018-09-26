@@ -6,6 +6,9 @@ export default class MenuListItems extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      entries: this.props.entries
+    }
     this.createTasks = this.createTasks.bind(this);
   }
 
@@ -14,17 +17,28 @@ export default class MenuListItems extends Component {
   }
 
   createTasks(item) {
+
+    /*
+    let subItems;
+    if ( item.items ) {
+
+      subItems = <MenuListItems entries={ item.items } delete={ this.props.deleteItem } />
+    }
+    */
+
     return (
       <li key={item.key}>
         <MenuItemInput title={item.text} />
         <button onClick={ () => this.delete(item.key) }>Delete</button>
+        <hr />
+        
       </li>
     )
   }
 
   render() {
 
-    let todoEntries = this.props.entries;
+    let todoEntries = this.state.entries;
     let listItems = todoEntries.map(this.createTasks);
 
     return (

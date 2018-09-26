@@ -71,6 +71,9 @@ export default class MenuItemInput extends Component {
           onClick={ this.handleButtonClick }>
            { this.state.isEditingEnabled ? `Save` : `Edit` }
           </button>
+          <button>
+            Add Item
+          </button>
       </span>
     )
   }
