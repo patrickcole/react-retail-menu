@@ -26,8 +26,6 @@ export default class Input extends Component {
       case "description":
         
         return <textarea onChange={ this.onInputChange } value={ this.state.value }></textarea>;
-      break;
-
       case "price":
 
         return (
@@ -36,12 +34,9 @@ export default class Input extends Component {
             <input type="number" step="0.01" onChange={ this.onInputChange} value={ this.state.value} />
           </span>
         );
-      break;
-
       default:
 
         return <input type="text" onChange={ this.onInputChange } value={ this.state.value } />;
-      break;
     }
   }
 
