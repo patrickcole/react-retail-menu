@@ -36,6 +36,11 @@ export default class Menu extends Component {
       });
   }
 
+  deleteProduct = (id) => {
+
+    this.setState( { products: this.state.products.filter( product => product.id !== id ) } );
+  }
+
   render() {
     return (
       <div>
@@ -45,9 +50,11 @@ export default class Menu extends Component {
             return (
               <Product 
                 key={product.id}
+                id={product.id}
                 title={product.title} 
                 description={product.description} 
-                price={product.price} 
+                price={product.price}
+                onProductDelete={this.deleteProduct}
               />
             )
           })}
