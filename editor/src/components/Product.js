@@ -34,7 +34,7 @@ export default class Product extends Component {
         <Input type="title" onInputUpdate={ this.updateProduct } value={ this.state.title } />
         <Input type="description" onInputUpdate={ this.updateProduct } value={ this.state.description } />
         <Input type="price" onInputUpdate={ this.updateProduct } value={ this.state.price } />
-        <button onClick={this.deleteProduct}>Delete</button>
+        <button className="retail-product__button retail-menu__button retail-menu__button--secondary" onClick={this.deleteProduct}>Delete</button>
       </li>
     )
   }

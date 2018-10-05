@@ -53,10 +53,12 @@ export default class Menu extends Component {
   render() {
     return (
       <li className="retail-menu__item">
-        <h3 className="retail-menu__title">{ this.state.title }</h3>
-        <span className="retail-menu__controls">
-          <button onClick={ this.addProduct }>Add Product</button>
-          <button onClick={ this.toggleExpand }>{ this.state.expanded ? 'Hide' : 'Show' }</button>
+        <span className="retail-menu__header">
+          <h3 className="retail-menu__title">{ this.state.title }</h3>
+          <span className="retail-menu__controls">
+            <button className="retail-menu__button retail-menu__button--primary" onClick={ this.addProduct }>Add Product</button>
+            <button className="retail-menu__button retail-menu__button--primary" onClick={ this.toggleExpand }>{ this.state.expanded ? 'Hide' : 'Show' }</button>
+          </span>
         </span>
         <div className={ this.state.expanded ? 'retail-menu__contents' : 'retail-menu__contents retail-menu__contents--closed' }>
         <ul className="retail-menu__products">
